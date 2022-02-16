@@ -38,9 +38,9 @@ export default function Movies() {
   };
 
   useEffect(async () => {
-    if (loading !== null) {
-      await getMovieCompany();
-    }
+    // if (loading !== null) {
+    await getMovieCompany();
+    // }
   }, [listID]);
 
   const companyInfo = async () => {
@@ -73,23 +73,6 @@ export default function Movies() {
 
   return (
     <View style={styles.container}>
-      {companyName.length == 0 && (
-        <View style={{ padding: 20 }}>
-          <Text>Welcome to this app.</Text>
-
-          <Text>
-            By Pressing the button you can go through the mvoies provided by the
-            API.
-          </Text>
-
-          <Text>I Hope You enjoy.</Text>
-
-          <Button icon="camera" mode="contained" onPress={() => companyInfo()}>
-            Load Movies
-          </Button>
-        </View>
-      )}
-
       {loading === false && (
         <View style={styles.company_view}>
           <ImageBackground
