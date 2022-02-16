@@ -7,7 +7,6 @@ import {
   SafeAreaView,
   ScrollView,
   Text,
-  Platform,
 } from "react-native";
 
 import MovieCard from "./MovieCard";
@@ -25,12 +24,11 @@ const MovieList = (props) => {
     searchInput,
   } = props;
 
-
   return (
-    <SafeAreaView style={{flex: 1 ,  height: '100%', marginBottom: 50, paddingBottom: -20}}>
-      <ScrollView 
-      >
-      
+    <SafeAreaView
+      style={{ flex: 1, height: "100%", marginBottom: 50, paddingBottom: -20 }}
+    >
+      <ScrollView>
         {searchInput.length > 1
           ? filteredResults.map((film, index) => {
               return (
@@ -47,7 +45,7 @@ const MovieList = (props) => {
             })
           : films.map((film, index) => {
               return (
-                <View key={film.id} >
+                <View key={film.id}>
                   <MovieCard
                     title={film.title}
                     backdrop_path={film.backdrop_path}
@@ -65,12 +63,7 @@ const MovieList = (props) => {
             style={{ padding: 20 }}
           />
         )}
-        <View
-          style={[
-            styles.container,
-        
-          ]}
-        >
+        <View style={[styles.container]}>
           <Button
             onPress={goBack}
             style={[styles.button, { backgroundColor: "#345eef" }]}

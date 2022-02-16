@@ -10,11 +10,10 @@ import {
   SafeAreaView,
   ScrollView,
 } from "react-native";
-import { Avatar, Button, Card, Title } from "react-native-paper";
+import { Avatar, Card } from "react-native-paper";
 import { findGenre } from "../helpers/functions";
 
 const MovieCard = (props) => {
-  const image_base_url = "https://image.tmdb.org/t/p/w500";
   const [modalVisible, setModalVisible] = useState(false);
 
   const LeftContent = () => {
@@ -71,37 +70,7 @@ const MovieCard = (props) => {
                 <View style={styles.summery_view}>
                   <Text>Summery: {film.overview}</Text>
                 </View>
-                {/* <View
-                  style={{
-                    // flex: 1,
-                    backgroundColor: "red",
-                    display: "flex",
-                    flexDirection: "row",
-                  }}
-                >
-                  <View style={styles.tableCell}>
-                    <View style={styles.cell}>
-                      <Text>popularity</Text>
-                    </View>
-                    <View style={styles.cell}>
-                      <Text>vote count</Text>
-                    </View>
-                    <View style={styles.cell}>
-                      <Text>vote average</Text>
-                    </View>
-                  </View>
-                  <View style={styles.tableCell}>
-                    <View style={styles.cell}>
-                      <Text>{film.popularity}</Text>
-                    </View>
-                    <View style={styles.cell}>
-                      <Text>{film.vote_count}</Text>
-                    </View>
-                    <View style={styles.cell}>
-                      <Text>{film.vote_average}</Text>
-                    </View>
-                  </View>
-                </View> */}
+
                 <Pressable
                   style={[styles.button, styles.buttonClose]}
                   onPress={() => setModalVisible(!modalVisible)}
@@ -114,7 +83,6 @@ const MovieCard = (props) => {
         </SafeAreaView>
       </Modal>
       <TouchableOpacity
-        // style={[styles.button, styles.buttonOpen]}
         style={{ width: "100%", padding: 5 }}
         onPress={() => setModalVisible(true)}
       >
@@ -164,7 +132,6 @@ const styles = StyleSheet.create({
     elevation: 5,
     width: "90%",
     height: "100%",
-    // marginBottom: 50,
   },
   button: {
     marginTop: 15,
@@ -197,8 +164,6 @@ const styles = StyleSheet.create({
   },
   genre_view: { width: "100%", flexDirection: "row", justifyContent: "center" },
   genre_row: {
-    // backgroundColor: "#345eef",
-    // padding: 5,
     marginBottom: 15,
   },
   summery_view: {
@@ -211,15 +176,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     width: "80%",
-    // backgroundColor: "red",
-  },
-  tableCell: {
-    // flex: 1,
-    // alignSelf: "stretch",
-    // flexDirection: "row",
-  },
-  cell: {
-    //  flex: 1, alignSelf: "stretch"
   },
 });
 
