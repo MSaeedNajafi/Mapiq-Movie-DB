@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Avatar, Button, Card, Paragraph, TextInput } from "react-native-paper";
-import { View, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator, Platform } from "react-native";
 import { fetchList } from "../helpers/functions";
 
 import MovieList from "./MovieList";

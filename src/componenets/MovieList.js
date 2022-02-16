@@ -7,6 +7,7 @@ import {
   SafeAreaView,
   ScrollView,
   Text,
+  Platform,
 } from "react-native";
 
 import MovieCard from "./MovieCard";
@@ -24,13 +25,12 @@ const MovieList = (props) => {
     searchInput,
   } = props;
 
-  // console.log("films --> ", films.length);
-  // console.log("filters films--> ", filteredResults.length);
-  // console.log("searchInput --> ", searchInput);
 
   return (
-    <SafeAreaView style={{ paddingBottom: 100 }}>
-      <ScrollView>
+    <SafeAreaView style={{flex: 1 ,  height: '100%', marginBottom: 50, paddingBottom: -20}}>
+      <ScrollView 
+      >
+      
         {searchInput.length > 1
           ? filteredResults.map((film, index) => {
               return (
@@ -47,7 +47,7 @@ const MovieList = (props) => {
             })
           : films.map((film, index) => {
               return (
-                <View key={film.id}>
+                <View key={film.id} >
                   <MovieCard
                     title={film.title}
                     backdrop_path={film.backdrop_path}
@@ -58,19 +58,6 @@ const MovieList = (props) => {
                 </View>
               );
             })}
-
-        {/* {films.map((film, index) => (
-          <View key={film.id}>
-            <Text>{index}</Text>
-            <MovieCard
-              title={film.title}
-              backdrop_path={film.backdrop_path}
-              vote_average={film.vote_average}
-              film={film}
-              genres={genres}
-            />
-          </View>
-        ))} */}
         {loadingMovies && (
           <ActivityIndicator
             size="large"
@@ -78,7 +65,12 @@ const MovieList = (props) => {
             style={{ padding: 20 }}
           />
         )}
-        <View style={[styles.container, { marginTop: 10 }]}>
+        <View
+          style={[
+            styles.container,
+        
+          ]}
+        >
           <Button
             onPress={goBack}
             style={[styles.button, { backgroundColor: "#345eef" }]}
