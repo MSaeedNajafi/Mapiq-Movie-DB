@@ -43,10 +43,6 @@ export default function Movies() {
     // }
   }, [listID]);
 
-  const companyInfo = async () => {
-    await getMovieCompany();
-  };
-
   const getMovieCompany = async () => {
     setLoading(true);
 

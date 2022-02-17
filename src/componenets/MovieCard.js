@@ -9,6 +9,7 @@ import {
   Image,
   SafeAreaView,
   ScrollView,
+  Platform,
 } from "react-native";
 import { Avatar, Card } from "react-native-paper";
 import { findGenre } from "../helpers/functions";
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 5,
-    height: 640,
+    height: Platform.OS === "ios" ? 620 : 640,
   },
   modalView: {
     margin: 20,
